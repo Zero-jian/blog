@@ -1,0 +1,26 @@
+﻿1、导入模块的方法
+//base.js
+var a = {
+    a:1,
+    b:function(){
+        console.log("bb");
+    }
+}
+export default a;
+
+//Vue模块页面
+导入文件 import base from './base.js'
+base.b();就可以调用事件
+要注意组件的复用和封装
+
+2、封装模块要注意回调函数,要熟悉掌握回调函数的使用
+
+3、Node.js和浏览器所支持的模块规范不一样//这是重点
+(1):浏览器支持:export、export default
+(2):node支持:export、module.exports
+
+4、findOne、find存在两个参数
+第一个是查询的条件，第二个是希望返回的值
+
+5、(function(){} window.demo = demo//暴露全局函数)()
+组件封装的基本结构
