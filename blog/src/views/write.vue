@@ -1,6 +1,5 @@
 <template>
     <div>
-      <blog-nav></blog-nav>
         <div class="main" :class="{bottom:status}">
             <div class="title">
                 <div class="title-left">
@@ -223,7 +222,6 @@ button {
 </style>
 
 <script>
-import blogNav from "@/components/header.vue";
 import edit from "@/components/edit.vue";
 import base from "../../base/base.js";
 export default {
@@ -239,7 +237,6 @@ export default {
   },
   components: {
     edit,
-    blogNav
   },
   computed: {
     status: function() {

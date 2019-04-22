@@ -21,7 +21,7 @@ const mutations = {
     this.state.music = !status;
   },
   hasArticle(state,data) {
-    this.state.article = data;
+    this.state.searchArticle = data;
   }
 }
 

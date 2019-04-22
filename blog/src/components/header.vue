@@ -2,10 +2,10 @@
     <div class="header">
         <header>
             <div class="left">
-                <div class="logo" @click="show" v-show="hidden" :class="{animate:$store.state.music}">
+                <div class="logo" @click="show" v-show="!power" :class="{animate:$store.state.music}">
                     <img v-lazy="'/static/logo.jpg'" alt="" style="width:100%; height:100%;">
                 </div>
-                <div class="logo" @click="show" v-show="!hidden" :class="{animate:$store.state.music}">
+                <div class="logo" @click="show" v-show="power" :class="{animate:$store.state.music}">
                     <img v-lazy="'/static/user.jpg'" alt="" style=" height:100%;">
                 </div>
                 <!-- <div class="search">
@@ -20,8 +20,8 @@
             <div class="right">
                 <span class="icon iconfont">&#xe669;</span>
                 <span class="icon iconfont" style="font-size:23px;" @click="$router.push({path:'/write'});">&#xe6a1;</span>
-                <span class="login" @click="$router.push({path:'/login'})" v-if="hidden">Login</span>
-                <span class="login" @click="logout" v-if="!hidden">logout</span>
+                <span class="login" @click="$router.push({path:'/login'})" v-if="!power">Login</span>
+                <span class="login" @click="logout" v-if="power">logout</span>
             </div>
         </header>
         <transition name="sideDown">
@@ -224,7 +224,6 @@ export default {
   data() {
     return {
       nav: ["Overview", "Articles", "Labels", "About", "Search"],
-      hidden: true,
       searchText: ""
     };
   },
@@ -262,23 +261,21 @@ export default {
         this.$store.commit("changeStatus", this.$store.state.status);
       }
     },
-    init() {
-      let params = {
-        url: "/status",
-        data: {
-          status: "login"
-        }
-      };
-      base.getMethod(params, res => {
-        if (res.power == 1) {
-          this.hidden = false;
-          this.$store.commit("changePower", res.power);
-          this.$store.commit("changeId", res.id);
-          // console.log(this.$store.state.power);
-        } else {
-        }
-      });
-    },
+    // init() {
+    //   let params = {
+    //     url: "/status",
+    //     data: {
+    //       status: "login"
+    //     }
+    //   };
+    //   base.getMethod(params, res => {
+    //     if (res.power == 1) {
+    //       this.hidden = false;
+    //       this.$store.commit("changePower", res.power);
+    //       this.$store.commit("changeId", res.id);
+    //     }
+    //   });
+    // },
     logout() {
       let params = {
         url: "/status",
@@ -311,11 +308,9 @@ export default {
       return this.$store.state.status;
     },
     ...mapState({
-      music: "music"
+      music: "music",
+      power: 'power'
     })
-  },
-  mounted() {
-    this.init();
   }
 };
 </script>

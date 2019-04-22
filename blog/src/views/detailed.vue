@@ -1,6 +1,5 @@
 <template>
     <div>
-      <blog-nav></blog-nav>
         <question :article="article"></question>
         <comment ref="remid">
           <button slot="form-btn" class="comment-btn" @click="msgCli">save the message</button>
@@ -35,7 +34,6 @@
 </style>
 
 <script>
-import blogNav from "@/components/header.vue";
 import scroll from "@/components/scroll.vue";
 import blogMask from "@/components/mask.vue";
 import comment from "@/components/comment.vue";
@@ -54,7 +52,6 @@ export default {
     comment,
     blogMask,
     scroll,
-    blogNav
   },
   mounted() {
     this.init();

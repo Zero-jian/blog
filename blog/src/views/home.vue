@@ -1,6 +1,5 @@
 <template>
   <div>
-    <blog-nav></blog-nav>
     <div class="main">
       <p class="top" :class="{bottom:status}" v-show="article.length">Rencent Articles</p>
       <div class="questions">
@@ -96,8 +95,8 @@
 </style>
 
 <script>
-import blogNav from "@/components/header.vue";
 import { mapState } from "vuex";
+import {mapMutations  } from 'vuex'
 import blogMask from "@/components/mask.vue";
 import base from "../../base/base.js";
 export default {
@@ -110,7 +109,6 @@ export default {
   },
   components: {
     blogMask,
-    blogNav
   },
   computed: {
     status: function() {
@@ -119,9 +117,10 @@ export default {
     time() {
       return this.time;
     },
-    ...mapState(["status", "time", "power"])
+    ...mapState(["status", "time", "power","searchArticle"])
   },
   methods: {
+    ...mapMutations(['hasArticle']),
     detailed: function(item) {
       this.$router.push({
         name: "detailed",
@@ -138,6 +137,8 @@ export default {
       base.getMethod(params, res => {
         if (res.status == 200) {
           this.article = res.result;
+          this.hasArticle(res.result);
+          console.log(this.searchArticle);
         } else {
           layer.msg("页面加载失败,请稍后重试");
         }
@@ -158,6 +159,6 @@ export default {
     power: function() {
       this.init();
     }
-  }
+  },
 };
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <blog-nav></blog-nav>
     <div class="main">
       <div class="labels" :class="{bottom:status}">
         <div class="labl" style="background:rgb(97, 183, 190); display:flex;" @click="all">
@@ -133,7 +132,6 @@
 </style>
 
 <script>
-import blogNav from "@/components/header.vue";
 import blogMask from "@/components/mask.vue";
 import base from "../../base/base.js";
 export default {
@@ -147,7 +145,6 @@ export default {
   },
   components: {
     blogMask,
-    blogNav
   },
   computed: {
     status: function() {

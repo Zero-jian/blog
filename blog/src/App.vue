@@ -1,41 +1,56 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <blog-nav></blog-nav>
+    <transition name="fade">
       <router-view></router-view>
-      <!-- <main-music></main-music> -->
-    </keep-alive>
+    </transition>
+    <!-- <main-music></main-music> -->
   </div>
 </template>
 
 <script>
-import mainMusic from "@/components/music.vue";
-export default {
-  name: "App",
-  components: {
-    mainMusic
-  }
-};
+  import blogNav from '@/components/header.vue'
+  import mainMusic from "@/components/music.vue";
+  export default {
+    name: "App",
+    components: {
+      mainMusic,
+      blogNav
+    }
+  };
+
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
 
-*,
-body,
-html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  *,
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-li {
-  list-style: none;
-}
+  li {
+    list-style: none;
+  }
+
+  .fade-enter {
+    opacity: 0;
+  }
+
+  .fade-enter-to {
+    opacity: 1;
+  }
+
+  .fade-enter-active {
+    transition: all 0.2s ease;
+  }
 </style>
-

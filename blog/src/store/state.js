@@ -7,7 +7,7 @@ const state = {
   //音乐的状态
   music: false,
   //搜索的文章
-  article: [],
+  searchArticle: [],
 }
 
 export default state;

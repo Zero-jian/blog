@@ -1,6 +1,5 @@
 <template>
     <div>
-      <blog-nav></blog-nav>
         <div class="main">
             <div class="top" :class="{bottom:status}">
                 <span>{{labels.length}} labels</span>
@@ -192,7 +191,6 @@
 </style>
 
 <script>
-import blogNav from "@/components/header.vue";
 import blogMask from "@/components/mask.vue";
 import base from "../../base/base.js";
 export default {
@@ -208,7 +206,6 @@ export default {
   },
   components: {
     blogMask,
-    blogNav
   },
   computed: {
     status: function() {

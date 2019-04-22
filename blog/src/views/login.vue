@@ -111,6 +111,8 @@ export default {
           base.postMethod(params, res => {
             if (res.status == 200) {
               layer.msg("登录成功");
+              this.$store.commit("changePower", res.result.Power);
+              this.$store.commit("changeId", res.result.Id);
               setTimeout(() => {
                 this.$router.push({ path: "/" });
               }, 1000);
