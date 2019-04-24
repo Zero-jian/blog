@@ -199,7 +199,7 @@ export default {
       colorBar: false,
       label: "",
       color: "",
-      labels: "",
+      labels: [],
       edit: "Create Label",
       labelOld: ""
     };
@@ -217,6 +217,7 @@ export default {
       this.colorBar = !this.colorBar;
       this.edit = "Create Label";
     },
+    //创建标签
     create() {
       if (this.$store.state.power == 1) {
         if (!this.label) {
@@ -289,6 +290,7 @@ export default {
         }
       });
     },
+    //编辑标签
     editLabel(item) {
       if (this.$store.state.power == 1) {
         this.edit = "Update Label";
@@ -300,6 +302,7 @@ export default {
         layer.msg("你没有权限，请先进行登录");
       }
     },
+    //删除标签
     delLabel(item) {
       if (this.$store.state.power == 1) {
         let self = this;
@@ -333,7 +336,7 @@ export default {
       } else {
         layer.msg("你没有权限，请先进行登录");
       }
-    }
+    },
   },
   mounted() {
     this.init();

@@ -120,8 +120,8 @@ export default {
     ...mapState(["status", "time", "power","searchArticle"])
   },
   methods: {
-    ...mapMutations(['hasArticle']),
-    detailed: function(item) {
+    ...mapMutations(['hasArticle','getTime']),
+    detailed(item) {
       this.$router.push({
         name: "detailed",
         query: {
@@ -138,7 +138,6 @@ export default {
         if (res.status == 200) {
           this.article = res.result;
           this.hasArticle(res.result);
-          console.log(this.searchArticle);
         } else {
           layer.msg("页面加载失败,请稍后重试");
         }

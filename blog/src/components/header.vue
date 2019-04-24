@@ -195,14 +195,14 @@ span {
 
   .right {
     float: right;
-    width: 30%;
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: space-around;
   }
 
   .left {
-    width: 70%;
+    width: 30%;
   }
 
   .search {
@@ -287,17 +287,16 @@ export default {
         if (res == base.cookie_del) {
           layer.msg("登出成功");
           setTimeout(() => {
-            // this.$router.push({ path: "/login" });
             location.reload();
+            //删除sessionStorage
+            sessionStorage.removeItem('power');
+            sessionStorage.removeItem('id');
           }, 1000);
         }
       });
     },
     search() {
       this.$emit("search", this.searchText);
-    },
-    cleanSearch() {
-      this.searchText = "";
     },
     ...mapMutations({
       musicStatus: "changeMusic"

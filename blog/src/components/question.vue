@@ -66,9 +66,6 @@
   width: 250px;
   background: #fff;
   border-radius: 5px;
-  max-height: 200px;
-  /* overflow-y: scroll; */
-  /* padding: 0 20px; */
   border: 1px solid rgba(27, 31, 35, 0.15);
   position: absolute;
   margin-top: -5px;
@@ -253,7 +250,6 @@
 }
 </style>
 <script>
-import $ from "jquery";
 import edit from "./edit.vue";
 import base from "../../base/base.js";
 export default {
@@ -390,7 +386,6 @@ export default {
       });
     },
     updateLabel(item) {
-      // alert(this.$route.query.id);
       if (this.$store.state.power == 1) {
         let params = {
           url: "/upLabel",

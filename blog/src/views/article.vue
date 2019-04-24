@@ -70,6 +70,7 @@
   padding: 0 10px;
   color: #fff;
   cursor: pointer;
+  margin: 5px;
 }
 
 .text {
@@ -160,18 +161,17 @@ export default {
   methods: {
     //初始化调用
     init() {
-      let params = {};
-      this.$store.state.power
-        ? (params.url = "/checkWrite")
-        : (params.url = "/checkWritePower");
-      base.getMethod(params, res => {
-        if (res.status == 200) {
-          this.article = this.articleSpecial = res.result;
-          this.deweight(this.article);
-        } else {
-          layer.msg("页面加载失败,请稍后重试");
-        }
-      });
+      //读取sessionStorage，若数据不存在则返回首页加载数据
+      let data = JSON.parse(sessionStorage.getItem("article"));
+      if(data){
+        this.article = this.articleSpecial = data;
+        this.deweight(this.article);
+      }else {
+        layer.msg("页面加载失败,请稍后重试");
+        setTimeout(()=>{
+          this.$route.push({path: '/'});
+        },1000);
+      }
       this.$store.commit("getTime");
     },
     //数据去重
