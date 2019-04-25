@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="main" :class="{bottom:status}">
+        <div class="main" :style="{marginTop: status ? '200px' : '0px'}">
             <div class="title">
                 <div class="title-left">
                     <div class="title-left-icon">
@@ -80,6 +80,7 @@ button {
   height: 30px;
 }
 .main {
+  transition: all 0.3s ease;
   width: 100%;
   border-bottom: 1px solid rgba(27, 31, 35, 0.15);
 }

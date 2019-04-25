@@ -27,7 +27,9 @@ export default {
     }),
   },
   mounted() {
-    this.loading();
+    if(document.documentElement.clientWidth > 980 ){
+        this.loading();
+    }
   },
   computed: {
     ...mapState({

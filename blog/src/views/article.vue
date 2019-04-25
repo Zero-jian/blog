@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main">
-      <div class="labels" :class="{bottom:status}">
+      <div class="labels" :style="{marginTop: status ? '200px' : '0px'}">
         <div class="labl" style="background:rgb(97, 183, 190); display:flex;" @click="all">
           <div class="icon">
             <span class="icon iconfont">&#xe63d;</span>
@@ -43,6 +43,7 @@
 }
 
 .labels {
+  transition: all 0.3s ease;
   margin-top: 10px;
   float: left;
   width: 100%;

@@ -4,7 +4,7 @@
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <!-- <main-music></main-music> -->
+    <main-music v-if="play"></main-music>
   </div>
 </template>
 
@@ -13,9 +13,24 @@
   import mainMusic from "@/components/music.vue";
   export default {
     name: "App",
+    data() {
+      return {
+        play: true,
+      }
+    },
     components: {
       mainMusic,
       blogNav
+    },
+    mounted() {
+      this.getWidth();
+    },
+    methods: {
+      getWidth() {
+        if (document.documentElement.clientWidth <= 980) {
+          this.play = this.$store.state.music = false;
+        }
+      }
     }
   };
 
@@ -53,4 +68,5 @@
   .fade-enter-active {
     transition: all 0.2s ease;
   }
+
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="main">
-            <div class="top" :class="{bottom:status}">
+            <div class="top" :style="{marginTop: status ? '200px' : '0px'}">
                 <span>{{labels.length}} labels</span>
                 <button type="button" @click="labelShow">New label</button>
             </div>
@@ -34,6 +34,7 @@
 }
 
 .top {
+  transition: all 0.3s ease;
   margin-top: 20px;
   height: 52px;
   background-color: #f6f8fa;
@@ -176,7 +177,6 @@
   }
 
   .label-left {
-    width: 25%;
     max-width: 50%;
   }
 

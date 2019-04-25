@@ -6,6 +6,7 @@ import login from '@/views/login'
 import detailed from '@/views/detailed'
 import write from '@/views/write'
 import search from '@/views/search'
+import person from '@/views/person'
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
     path: '/search',
     name: 'search',
     component: search,
+  },
+  {
+    path: '/person',
+    name: 'person',
+    component: person
   }
 ];
 

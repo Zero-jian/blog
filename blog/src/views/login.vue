@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :style="{marginTop: status ? '200px' : '0px'}" style="transition: all 0.3s ease;">
         <div class="logo" @click="$router.push({path:'/'});">
             <img v-lazy="'/static/logo.jpg'" alt="" style="width:100%; height:100%;">
         </div>
@@ -22,6 +22,10 @@ html,
 body {
   height: 100%;
   background: #f9f9f9;
+}
+
+.bottom {
+  margin-top: 200px;
 }
 
 .logo {
@@ -126,6 +130,11 @@ export default {
   },
   mounted() {
 
+  },
+  computed: {
+    status() {
+      return this.$store.state.status;
+    }
   }
 };
 </script>

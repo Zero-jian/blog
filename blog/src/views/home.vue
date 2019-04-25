@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main">
-      <p class="top" :class="{bottom:status}" v-show="article.length">Rencent Articles</p>
+      <p class="top" :style="{marginTop: status ? '200px' : '0px'}" v-show="article.length">Rencent Articles</p>
       <div class="questions">
         <div class="question" v-for="(item,index) in article">
           <div class="title" @click="detailed(item)" :name="index">{{item.title}}</div>
@@ -31,6 +31,7 @@
 }
 
 .top {
+  transition: all 0.3s ease;
   height: 35px;
   line-height: 35px;
   text-align: left;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :class="{bottom:status}">
+  <div class="container" :style="{marginTop: status ? '200px' : '0px'}">
     <div class="main">
       <div class="title">
         <div class="text" v-show="!show">{{article.title}}</div>
@@ -170,6 +170,7 @@
 }
 
 .container {
+  transition: all 0.3s ease;
   width: 100%;
   background: #fff;
   padding: 0;

@@ -229,7 +229,7 @@ export default {
   },
   methods: {
     push(index) {
-      if (document.body.clientWidth <= 980) {
+      if (document.documentElement.clientWidth <= 980) {
         this.$store.commit("changeStatus", this.$store.state.status);
       }
       switch (index) {
@@ -252,10 +252,10 @@ export default {
     },
     show() {
       //只有在首页点击头像才会改变音乐状态，其余都是返回首页
-      if (this.$route.path === "/") {
+      if (this.$route.path === "/" && document.documentElement.clientWidth > 980) {
         this.musicStatus(this.music);
       }
-      if (document.body.clientWidth >= 980) {
+      if (document.documentElement.clientWidth >= 980) {
         this.$router.push({ path: "/" });
       } else {
         this.$store.commit("changeStatus", this.$store.state.status);
@@ -310,7 +310,7 @@ export default {
       music: "music",
       power: 'power'
     })
-  }
+  },
 };
 </script>
 

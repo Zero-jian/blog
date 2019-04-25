@@ -1,5 +1,5 @@
 <template>
-  <div class="search" :class="{bottom:status}">
+  <div class="search" :style="{marginTop: status ? '200px' : '0px'}">
     <div class="main">
       <input type="text" placeholder="输入关键字搜索..." class="search-input" v-model="searchText" @keyup.enter="search">
       <div class="no" v-show="!article.length">
@@ -70,6 +70,7 @@
   }
 
   .search {
+    transition: all 0.3s ease;
     max-width: 100%;
   }
 
@@ -179,7 +180,6 @@
         return this.$store.state.time;
       },
       status() {
-        console.log(this.$store.state.status);
         return this.$store.state.status;
       }
     },
