@@ -9,7 +9,7 @@ var data = {
     status_no: '500',
     cookie_del: 'cookie删除成功',
     save_ok: '保存成功',
-    url: 'http://39.96.59.11/images',
+    url: '../static',
 }
 
 module.exports = data;

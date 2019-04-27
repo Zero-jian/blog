@@ -18,8 +18,8 @@ Vue.config.productionTip = false
 //设置图片懒加载
 Vue.use(VueLazyload, {
   preLoad: 0.5,
-  error: '../static/loading.gif',
-  loading: '../static/loading.gif',
+  error: '/static/loading.gif',
+  loading: '/static/loading.gif',
   attempt: 1
 })
 

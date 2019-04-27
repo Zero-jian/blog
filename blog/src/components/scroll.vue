@@ -1,6 +1,6 @@
 <template>
   <div class="top" v-show="scrollShow">
-    <img v-lazy="'/static/top.png'" alt="让我们一起回到顶部" class="imgScroll" @click="scrollData">
+    <img src="/static/top.png" alt="让我们一起回到顶部" class="imgScroll" @click="scrollData">
   </div>
 </template>
 <script>
