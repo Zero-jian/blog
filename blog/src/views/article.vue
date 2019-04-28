@@ -170,7 +170,8 @@ export default {
       }else {
         layer.msg("页面加载失败,请稍后重试");
         setTimeout(()=>{
-          this.$route.push({path: '/'});
+          console.log(this.$route);
+          this.$router.push({path: '/'});
         },1000);
       }
       this.$store.commit("getTime");

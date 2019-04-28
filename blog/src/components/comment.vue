@@ -11,7 +11,7 @@
             <div class="msg" v-for="(item,index) in comments">
                 <div class="msg-top">
                     <div class="msg-left">
-                        <img :src="item.image" alt="" class="img" style="height:100%; margin-left:-10px;">
+                        <img :src="item.image" alt="" class="img" style="height:100%;">
                     </div>
                     <div class="msg-right">
                         <p class="msg-name">{{item.name}}</p>
@@ -253,6 +253,7 @@ export default {
       }
     },
     articleComment() {
+
       let params = {
         url: "/newArticleComment",
         data: {

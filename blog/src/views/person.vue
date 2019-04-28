@@ -2,7 +2,7 @@
   <div class="main">
     <div class="person" :style="{marginTop: status ? '200px' : '0px'}">
       <p class="title">我的简历</p>
-      <img v-lazy="'/static/logo.jpg'" alt="" class="person-img">
+      <img v-lazy="'/static/person.jpg'" alt="" class="person-img">
       <div class="person-information" v-for="(item,index) in person">
         <p class="info-title">{{item.title}}</p>
         <p class="info-work">{{item.work}}</p>
@@ -50,44 +50,33 @@
               },
               {
                 left: "邮箱：",
-                right: "115777340@qq.com"
+                right: "1157773406@qq.com"
               },
               {
                 left: "github：",
-                right: "https://github.com/Zero-jian/blog"
+                right: "https://github.com/Zero-jian/newBlog"
               }
             ]
           },
           {
             title: "工作经历",
             work: "广东世纪丰源有限公司",
-            info: [{
-                left: "姓名：",
-                right: "胡国健"
-              },
-              {
-                left: "性别：",
-                right: "男"
-              },
-              {
-                left: "学历：",
-                right: "**"
-              },
-              {
-                left: "年龄：",
-                right: "22"
-              },
+            info: [
               {
                 left: "工作时间：",
                 right: "2018-06 -- 至今"
               },
               {
-                left: "邮箱：",
-                right: "115777340@qq.com"
+                left: "部门：",
+                right: "软件部"
               },
               {
-                left: "github：",
-                right: "https://github.com/Zero-jian/blog"
+                left: "职位：",
+                right: "前端开发"
+              },
+              {
+                left: "内容：",
+                right: "H5项目开发"
               }
             ]
           },
@@ -105,7 +94,7 @@
             },
             {
               left: "项目链接：",
-              right: "http://39.96.59.11/#/"
+              right: "http://39.96.59.11/#/(本网站)"
             },
             {
               left: "项目描述：",
@@ -180,6 +169,7 @@
   }
 
   .info-data {
+    word-wrap: break-word;
     text-indent: 15px;
   }
 

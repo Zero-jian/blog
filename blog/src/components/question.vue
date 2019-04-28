@@ -440,7 +440,9 @@ export default {
     }
   },
   mounted() {
-    this.label();
+    if(this.$route.path != '/about') {
+      this.label();
+    }
   }
 };
 </script>

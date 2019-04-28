@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
@@ -15,7 +16,7 @@ export default {
       window.addEventListener("scroll", this.handleScroll);
     },
     scrollData() {
-      $(document.body).animate(
+      $('html,body').animate(
         {
           scrollTop: 0
         },
@@ -24,7 +25,7 @@ export default {
     },
     handleScroll() {
       //兼容谷歌浏览器
-      let top = document.body.scrollTop + document.documentElement.scrollTop;
+      let top = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;;
       if (top > 0 && document.body.clientWidth >= 980) {
         this.scrollShow = true;
       } else {

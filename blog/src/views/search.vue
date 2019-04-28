@@ -20,6 +20,7 @@
         </div>
       </div>
     </div>
+    <blog-mask v-show="!searchArticle.length"></blog-mask>
   </div>
 </template>
 <style scoped>
@@ -111,7 +112,8 @@
 <script>
   import {
     mapState
-  } from 'vuex'
+  } from 'vuex';
+  import blogMask from '@/components/mask.vue'
   export default {
     data() {
       return {
@@ -125,10 +127,10 @@
         if (!data.length) {
           layer.msg("页面加载失败,请稍后重试");
           setTimeout(() => {
-            this.$route.push({
+            this.$router.push({
               path: '/'
             });
-          }, 500);
+          }, 1000);
         }
       },
       search() {
@@ -172,7 +174,7 @@
       },
     },
     components: {
-
+      blogMask
     },
     computed: {
       ...mapState(['searchArticle' ]),
