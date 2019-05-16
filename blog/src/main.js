@@ -7,7 +7,6 @@ import createStroe from './store/index'
 //Vue-Router
 import createRouter from './router/index'
 import VueLazyload from 'vue-lazyload'
-import 'babel-polyfill'
 
 //使用Vuex
 const store = createStroe();

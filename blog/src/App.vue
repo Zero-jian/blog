@@ -4,13 +4,13 @@
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <main-music v-if="play"></main-music>
+    <!-- <main-music v-if="play"></main-music> -->
   </div>
 </template>
 
 <script>
   import blogNav from '@/components/header.vue'
-  import mainMusic from "@/components/music.vue";
+  // import mainMusic from "@/components/music.vue";
   export default {
     name: "App",
     data() {
@@ -19,7 +19,7 @@
       }
     },
     components: {
-      mainMusic,
+      // mainMusic,
       blogNav
     },
     mounted() {
