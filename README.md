@@ -30,8 +30,6 @@
 
 > 该项目是一个典型的Vue-cli脚手架项目搭建
 
-![alt text](http://39.96.59.11/images/blog1.png "项目结构")
-
 > 各位可以先去官网看一下Vue-cli项目搭建目录的结构，下面会介绍修改过的目录
 
 > 1、base文件夹存放的公共的方法和属性，里面包括了base.js(axios的get和post方法封装)、config.js(项目的公用配置和属性)、
